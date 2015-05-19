@@ -20,6 +20,7 @@ And then execute:
 
     $ bundle
 
+It is dependent on devise 3.4.1, rails 4.2 and it supports both MRI and jruby. It should also work for Rubinius, but we need someone to test that.
 
 ## Usage
 
