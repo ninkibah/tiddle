@@ -1,0 +1,33 @@
+# Options for all POSTGRESQL DBs
+postgres_settings: &POSTGRES_SETTINGS
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
+  pool: 10
+  port: 5432
+
+# Options for all SQLLITE3 DBs
+sqllite3_settings: &SQLLITE3_SETTINGS
+  adapter: sqllite3
+  encoding: unicode
+
+# You can switch to using SQLLITE3, by changing the *POSTGRES_SETTINGS to *SQLLITE3_SETTINGS
+development:
+  <<: *POSTGRES_SETTINGS
+  database: tiddle_dev
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+# You can switch to using SQLLITE3, by changing the *POSTGRES_SETTINGS to *SQLLITE3_SETTINGS
+test:
+  <<: *POSTGRES_SETTINGS
+  database: tiddle_test
+
+# As this is a gem, it's alright to have the production DB the same as the development one.
+# You can switch to using SQLLITE3, by changing the *POSTGRES_SETTINGS to *SQLLITE3_SETTINGS
+production:
+  <<: *POSTGRES_SETTINGS
+  database: tiddle_dev
